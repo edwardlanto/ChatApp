@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import{  View, Text, TextInput, Button, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 const style = require('../style');
+const consts = style.constants;
 
 class Input extends React.Component{
     constructor(props){
@@ -10,28 +11,12 @@ class Input extends React.Component{
             name:''
         }
     }
-
-    onPress(item){
-        console.log(this.state.name)
-    }
-
     render(){
         return(
-            <View>
-            <TextInput style={style.nameInput}
-                onChangeText={(text) =>{
-                    this.setState({name:text})
-                }}
-            />
-            <Button title="Enter Chat"
-                    onPress={() => {
-                        console.log(this.state)
-                        Actions.chat({
-                            username:this.state.name
-                        })
-                    }}
-                ></Button>
-            
+            <View style={style.saveButton}>
+                <TouchableHighlight onPress={this.props.onPress}>
+                    <Text>{this.props.title}</Text>
+                </TouchableHighlight>
             </View>
 
             )

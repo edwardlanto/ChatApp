@@ -9,8 +9,6 @@ class Home extends React.Component{
         return(
             <View>
                 <Text style={style.center}>Enter your username </Text>
-                <Input />
-       
             </View>
         )
     }

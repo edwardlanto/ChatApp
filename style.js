@@ -70,6 +70,11 @@ var style = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 16,
   },
+  saveButton:{
+    paddingBottom:20,
+    paddingTop:20,
+    backgroundColor:'#3498db',
+  }
 })
 
 module.exports = style
