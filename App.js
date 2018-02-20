@@ -3,6 +3,7 @@ import { Scene, Router } from "react-native-router-flux";
 // import { Platform, StyleSheet, Text, View } from "react-native";
 import Home from "./components/Home";
 import Chat from "./components/Chat";
+const style = require("./style");
 import * as firebase from "firebase";
 
 const firebaseConfig = {

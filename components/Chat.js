@@ -5,12 +5,17 @@ import{
     View,
     Text
 } from 'react-native';
-
 class Chat extends React.Component{
+    componentDidMount(){
+     
+    }
+    
     render(){
+
         return(
             <View>
                 <Text>Chat Component</Text>
+                {console.log(this.props)}
             </View>
         )
     }

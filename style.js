@@ -12,6 +12,7 @@ var style = StyleSheet.create({
   nameInput:{
     borderColor:'black',
     height:40,
+    backgroundColor:'#fff',
     padding:5,
     margin:20
   },
