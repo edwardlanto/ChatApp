@@ -16,4 +16,4 @@ class Chat extends React.Component{
     }
 }
 
-module.exports = Chat;
+export default Chat;

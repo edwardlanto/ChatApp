@@ -1,31 +1,32 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
-const Home = require('./components/Home');
-const styles = require('./styles');
+import { Scene, Router } from "react-native-router-flux";
+// import { Platform, StyleSheet, Text, View } from "react-native";
+import Home from "./components/Home";
+import Chat from "./components/Chat";
+import * as firebase from "firebase";
 
-
-// let instance = null;
-
-// class FirebaseService {
-//   constructor() {
-//     if (!instance) {
-//       this.app = firebase.initializeApp(firebaseConfig);
-//       instance = this;
-//     }
-//     return instance;
-//   }
-// }
+const firebaseConfig = {
+  apiKey: "AIzaSyBHpuAEzrFocRoLBUZedAi_CQ0nXrfBqkY",
+  authDomain: "chat-app-4b7e6.firebaseapp.com",
+  databaseURL: "https://chat-app-4b7e6.firebaseio.com",
+  projectId: "chat-app-4b7e6",
+  storageBucket: "chat-app-4b7e6.appspot.com",
+  messagingSenderId: "985990696062"
+};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 // type Props = {};
-class ChatApp extends React.Component {
+class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Im a container</Text>
-        <Home />
-      </View>
+      <Router style={style.container}>
+        <Scene key="root">
+          <Scene key="home" component={Home} title="Home" initial={true} />
+          <Scene key="chat" component={Chat} title="Come" />
+        </Scene>
+      </Router>
     );
   }
 }
 
-export default ChatApp;
+export default App;

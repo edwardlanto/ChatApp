@@ -4,10 +4,16 @@ const constants = {
   actionColor: '#24CE84'
 };
 
-var styles = StyleSheet.create({
+var style = StyleSheet.create({
   container: {
     backgroundColor: '#f2f2f2',
     flex: 1,
+  },
+  nameInput:{
+    borderColor:'black',
+    height:40,
+    padding:5,
+    margin:20
   },
   listview: {
     flex: 1,
@@ -65,5 +71,5 @@ var styles = StyleSheet.create({
   },
 })
 
-module.exports = styles
+module.exports = style
 module.exports.constants = constants;

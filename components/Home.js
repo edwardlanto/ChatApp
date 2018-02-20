@@ -1,19 +1,17 @@
-import React from 'react';
-import ReactNative from 'react-native';
-
-import{
-    View,
-    Text
-} from 'react-native';
+import React, { Component } from 'react';
+import{  View, Text, TextInput, Button } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+const style = require("../style");
 
 class Home extends React.Component{
     render(){
         return(
             <View>
-                <Text>Home Component</Text>
+                <Text>Hello</Text>
+                {/* <TextInput style={style}/> */}
             </View>
         )
     }
 }
+export default Home;
 
-module.exports = Home;
