@@ -1,24 +1,19 @@
-import React from 'react';
-import ReactNative from 'react-native';
+import React, { Component } from 'react';
+import { FlatList, View, Text, TextInput, ListView } from 'react-native';
+import MessageInput from './MessageInput';
 
-import{
-    View,
-    Text
-} from 'react-native';
-class Chat extends React.Component{
-    componentDidMount(){
-     
+class Chat extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      newT:''
     }
-    
-    render(){
-
-        return(
-            <View>
-                <Text>Chat Component</Text>
-                {console.log(this.props)}
-            </View>
-        )
-    }
+  }
+  render() {
+    return (
+        <ListView />
+    );
+  }
 }
 
 export default Chat;
