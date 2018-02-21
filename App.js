@@ -111,7 +111,9 @@ class App extends React.Component {
     if(message.length < 30){
       Alert.alert(
         'Error',
-        'Message must be longer than 30'
+        (err) => {
+          console.log(err)
+        }
       )
     }else{
       console.log('returned true')
