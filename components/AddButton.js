@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import{  View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
+import{  View, Text, TouchableOpacity } from 'react-native';
 const styles = require("../styles");
 
-class AddButton extends React.Component{
+class AddButton extends Component{
     constructor(props){
         super(props);
-        
     }
 
     render(){
         return(
-            <View styles={styles.action}>
+            <View style={styles.action}>
                 <TouchableOpacity
                 onPress={this.props.onPress}
                 >
@@ -20,5 +19,6 @@ class AddButton extends React.Component{
         )
     }
 }
+
 export default AddButton
 

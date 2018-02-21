@@ -24,7 +24,6 @@ var styles = StyleSheet.create({
     borderBottomColor: '#eee',
     borderColor: 'transparent',
     borderWidth: 1,
-    paddingLeft: 16,
     paddingTop: 14,
     paddingBottom: 16,
   },
@@ -70,10 +69,29 @@ var styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 16,
   },
+  actionCancel: {
+    backgroundColor: 'red',
+    borderColor: 'transparent',
+    borderWidth: 1,
+    paddingLeft: 16,
+    paddingTop: 14,
+    paddingBottom: 16,
+  },
   saveButton:{
     paddingBottom:20,
     paddingTop:20,
     backgroundColor:'#3498db',
+  },
+  name:{
+    fontSize:23,
+    marginBottom: 20,
+    textAlign:"center"
+  },
+  message:{
+    fontSize:10
+  },
+  marginTop:{
+    marginTop:40
   }
 })
 

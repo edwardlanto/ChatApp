@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   Platform,
-  StyleSheet,
+  stylesSheet,
   Text,
   View,
   ListView,
@@ -13,7 +13,7 @@ import {
   Alert
 } from "react-native";
 import AddButton from "./AddButton";
-const style = require("../style");
+const styles = require("../styles");
 
 import * as firebase from "firebase";
 
@@ -27,7 +27,6 @@ const firebaseConfig = {
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-// type Props = {};
 class Chat extends React.Component {
   constructor() {
     super();
@@ -52,20 +51,13 @@ class Chat extends React.Component {
   getRef(){
     return firebaseApp.database().ref();
   }
-  componentWillMount() {
-    this.getList(this.itemsRef);
-  }
+
   componentDidMount() {
     this.getList(this.itemsRef);
     this.setState({
       date: JSON.stringify(new Date().toLocaleString()).replace(/['"]+/g, '')
     })
   }
-
-  pressRow(item){
-    console.log(item)
-  }
-
 
   getList(itemsRef) {
     itemsRef.on('value', (snap) => {
@@ -88,15 +80,11 @@ class Chat extends React.Component {
 
   renderRow(item) {
     return (
-      <TouchableHighlight
-        onPress={item => {
-          this.pressRow(item);
-        }}
-      >
-        <View style={style.li}>
-          <Text>Author:{item.author}</Text>
+      <TouchableHighlight>
+        <View style={styles.li}>
+          <Text style={styles.name}>{item.author}</Text>
           <Text>Message:{item.message}</Text>
-          <Text>Date:{item.date}</Text>
+          <Text>Date Posted:{item.date}</Text>
         </View>
       </TouchableHighlight>
     );
@@ -105,6 +93,7 @@ class Chat extends React.Component {
   addItem(){
     this.setModalVisible(true)
   }
+
   render() {
     return (
       <ScrollView>
@@ -113,19 +102,8 @@ class Chat extends React.Component {
             animationType={'slide'}
             onRequestClose={() => this.closeModal()}
           >
-          {/* <ToolBar style={style.center}title="Message Page" /> */}
           <TextInput
-            style={style.nameInput}
-            value={this.state.author}
-            placeholder="Enter Name Here"
-            onChangeText={(value) => this.setState({
-              author:value
-            })
-            
-            }
-          />
-          <TextInput
-            style={style.nameInput}
+            style={[styles.nameInput, styles.marginTop]}
             value={this.state.message}
             placeholder="Enter Message Here"
             onChangeText={(value) => this.setState({
@@ -138,13 +116,17 @@ class Chat extends React.Component {
               message:this.state.message,
               date:this.state.date
             })
-            this.setModalVisible(!this.setModalVisible)}}> 
-            <Text>Save Item</Text>
+            this.setModalVisible(!this.setModalVisible)}}
+            style={styles.action}
+            > 
+            <Text style={styles.actionText}>Save Item</Text>
             </TouchableHighlight>
 
           <TouchableHighlight onPress={() => {
-            this.setModalVisible(!this.setModalVisible)}}> 
-            <Text>Cancel Item</Text>
+            this.setModalVisible(!this.setModalVisible)}}
+            style={styles.actionCancel}
+            > 
+            <Text style={styles.actionText}>Cancel Item</Text>
             </TouchableHighlight>
           </Modal>
         <ListView
@@ -152,7 +134,7 @@ class Chat extends React.Component {
           renderRow={this.renderRow}
           initial={true}
         />
-        <AddButton onPress={this.addItem.bind(this)} title="Add Item" style={style.saveButton} />
+        <AddButton onPress={this.addItem.bind(this)} title="Add Item" style={styles.saveButton} />
       </ScrollView>
     );
   }
