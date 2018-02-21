@@ -111,9 +111,10 @@ class Chat extends React.Component {
             })}
           />
           <TouchableHighlight onPress={() => {
+            let desired = this.state.message.replace(/[^\w\s]/gi, '')
             this.itemsRef.push({
               author:this.props.currentAuthor,
-              message:this.state.message,
+              message:desired,
               date:this.state.date
             })
             this.setModalVisible(!this.setModalVisible)}}
