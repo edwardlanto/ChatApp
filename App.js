@@ -26,7 +26,7 @@ class App extends React.Component {
       <Router>
         <Scene key="root">
           <Scene key="home" component={Home} title="Home" initial />
-          <Scene key="chat" component={Chat} title="Chat" intial />
+          <Scene key="chat" component={Chat} title="Chat"/>
         </Scene>
       </Router>
     )
