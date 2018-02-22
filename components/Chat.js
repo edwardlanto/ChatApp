@@ -80,9 +80,7 @@ class Chat extends React.Component {
 
   renderRow(item) {
     return (
-      <TouchableHighlight onPress={() => {
-        console.log(Object.values(this))
-        }}>
+      <TouchableHighlight>
         <View style={styles.li}>
           <Text style={styles.name}>{item.author}</Text>
           <Text>Message:{item.message}</Text>
