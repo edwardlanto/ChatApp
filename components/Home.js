@@ -13,7 +13,7 @@ class Home extends React.Component{
 
     checkName(user){
         let desired = user.replace(/[^\w\s]/gi, '')
-        if(desired.length < 3){
+        if(desired.length < 0){
             Alert.alert('Username must be longer than 3 characters')
         }else{
             Actions.chat({

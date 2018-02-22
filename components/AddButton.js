@@ -20,5 +20,5 @@ class AddButton extends Component{
     }
 }
 
-export default AddButton
+export default AddButton;
 

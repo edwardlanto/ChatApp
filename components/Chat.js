@@ -80,7 +80,9 @@ class Chat extends React.Component {
 
   renderRow(item) {
     return (
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => {
+        console.log(Object.values(this))
+        }}>
         <View style={styles.li}>
           <Text style={styles.name}>{item.author}</Text>
           <Text>Message:{item.message}</Text>
@@ -91,7 +93,7 @@ class Chat extends React.Component {
   }
 
   addItem(){
-    this.setModalVisible(true)
+    this.setModalVisible(true);
   }
 
   render() {
@@ -111,7 +113,7 @@ class Chat extends React.Component {
             })}
           />
           <TouchableHighlight onPress={() => {
-            let desired = this.state.message.replace(/[^\w\s]/gi, '')
+            let desired = this.state.message.replace(/[^\w\s]/gi, '');
             this.itemsRef.push({
               author:this.props.currentAuthor,
               message:desired,
@@ -141,4 +143,4 @@ class Chat extends React.Component {
   }
 }
 
-export default Chat
+export default Chat;
